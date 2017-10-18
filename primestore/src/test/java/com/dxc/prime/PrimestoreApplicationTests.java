@@ -7,16 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PrimeApplicationTests {
+public class PrimestoreApplicationTests {
 
 	@Test
 	public void contextLoads() {
 	}
-	
-	@Test
-	public void testGetPrime() {
-		PrimeCalculator calc = new PrimeCalculator();
-		assert(calc.getPrime(4)==7);
-	}
-	
+
 }
