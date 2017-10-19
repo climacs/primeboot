@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ public class PrimeStoreController {
 	@Value("${endpoint.prime}")
 	private String primeEndpoint;
 
+	@CrossOrigin
 	@RequestMapping(value = "/{nthPrime}", method = RequestMethod.GET)
 	public PrimeResponse findPrime(@PathVariable("nthPrime") int nthPrime) {
 		StoredPrime prime = store.findOne(nthPrime);
@@ -35,6 +37,7 @@ public class PrimeStoreController {
 		return new PrimeResponse(prime.getPrimeNumber());
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public PrimeListResponse findAll() {
 		List<StoredPrime> storedPrimes = store.findAll();
